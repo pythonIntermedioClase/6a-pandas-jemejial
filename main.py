@@ -143,7 +143,112 @@ def main():
 # =============================================================================
 # PUNTO DE ENTRADA
 # =============================================================================
+def probar_acceso_diccionario():
+    declaracion = {"nit": "800234567-0", "estado": "Pendiente"}
+    print(declaracion["valor_declarado"])
+
+def revisar_declaracion(declaracion):
+    # Recorrer e imprimir todos los campos
+    for clave, valor in declaracion.items():
+        print(f"{clave}: {valor}")
+
+    declaracion["estado"] = "Revisada"
+    print(f"Estado actualizado: {declaracion['estado']}")
+
+def resumen_declaraciones(lista_declaraciones):
+    print()
+    
+def probar_acceso_serie():
+    serie = pd.Series([100, 200, 300])
+    print(serie[5])
+
+def explorar_dataframe():
+    df = pd.DataFrame([
+        {
+            "nit": "900123456-1",
+            "razon_social": "Comercializadora Andina S.A.S",
+            "municipio": "Bogotá",
+            "valor_declarado": 4500000,
+        },
+        {
+            "nit": "800987654-2",
+            "razon_social": "Servicios Integrales S.A.S",
+            "municipio": "Medellín",
+            "valor_declarado": 3200000,
+        },
+        {
+            "nit": "901234567-3",
+            "razon_social": "Distribuciones del Caribe S.A.S",
+            "municipio": "Barranquilla",
+            "valor_declarado": 5100000,
+        },
+        {
+            "nit": "890123456-4",
+            "razon_social": "Inversiones del Pacífico S.A.S",
+            "municipio": "Cali",
+            "valor_declarado": 2750000,
+        },
+    ])
+
+    print(df.index)
+    print(df.columns)
+    print(df.shape)
 
 if __name__ == "__main__":
-    main()
+    # probar_acceso_diccionario()
+    # main()  ← comentado mientras probamos
+    # probar_acceso_serie()
+    """
+    declaracion = {
+        "Nit": "900123456-1",
+        "Razon_social": "Comercializadora Andina S.A.S",
+        "Valor_declarado": 4_500_000,
+        "Estado": "Presentada",
+        "Municipio": "Bogotá",
+    }
+    #print("Función revisar_declaración ejecutada correctamente")
+    #revisar_declaracion(declaracion)
+
+    valores = np.array([4_500_000, 12_300_000, 2_100_000])
+    serie = pd.Series(valores, index=["900123456-1", "800234567-0", "700345678-9"])
+
+    print(serie)
+    # 900123456-1     4500000
+    # 800234567-0    12300000
+    # 700345678-9     2100000
+    # dtype: int64
+
+    print(serie["800234567-0"])  # → 12300000
+    print(serie.mean())          # → 6300000.0
+    print(serie.sum())           # → 18900000
+    print(serie.max())           # → 12300000
+    print(serie.idxmax())        # → '800234567-0'  (index del valor máximo)
+    datos = {
+    "nit": ["900123456-1", "800234567-0", "700345678-9"],
+    "municipio": ["Bogotá", "Cali", "Medellín"],
+    "valor_declarado": [4_500_000, 12_300_000, 2_100_000],
+    "estado": ["Presentada", "Presentada", "Pendiente"],
+}
+
+    df = pd.DataFrame(datos)
+    print(df)
+
+    #            nit  municipio  valor_declarado     estado   ← nombres de columna
+    # 0  900123456-1     Bogotá          4500000  Presentada  ← fila 0
+    # 1  800234567-0       Cali         12300000  Presentada  ← fila 1
+    # 2  700345678-9   Medellín          2100000   Pendiente  ← fila 2
+    # ↑
+    # índice de filas (asignado automáticamente)
+
+    print(type(df["valor_declarado"]))
+    # <class 'pandas.core.series.Series'>
+
+    print(df.shape[0])  # → 3  (número de filas)
+    print(df.shape[1])  # → 4  (número de columnas)
+    print(len(df))      # → 3  (equivalente a df.shape[0])
+    """
+    explorar_dataframe()
+
+    
+
 
